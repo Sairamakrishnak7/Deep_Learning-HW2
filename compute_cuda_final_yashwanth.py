@@ -356,9 +356,9 @@ def main():
     label_file = '/training_data/feat'
     files_dir = 'training_label.json'
     train_dataset = training_data(label_file, files_dir, w_dict, wordtoindex)
-    train_dataloader = DataLoader(dataset = train_dataset, batch_size=64, shuffle=True, num_workers=8, collate_fn=batch)
+    train_dataloader = DataLoader(dataset = train_dataset, batch_size=32, shuffle=True, num_workers=8, collate_fn=batch)
     
-    epochs_n = 3
+    epochs_n = 10
 
     encoder = rnn_encoder()
     decoder = rnn_decoder(512, len(indextoword) +4, len(indextoword) +4, 1024, 0.28)
